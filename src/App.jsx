@@ -49,10 +49,9 @@ function App() {
    * 6 chars = 2.1 billion combos, virtually no collision.
    */
   const generateUniqueCode = () => {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no I/O/0/1 to avoid confusion
     let code = '';
-    for (let i = 0; i < 6; i++) {
-      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    for (let i = 0; i < 5; i++) {
+      code += Math.floor(Math.random() * 10).toString();
     }
     return code;
   }
@@ -69,10 +68,8 @@ function App() {
     cleanUsername = cleanUsername.replace(/[^a-zA-Z0-9\s]/g, '').toUpperCase();
     
     const code = generateUniqueCode()
-    // Content format: "SH [CODE] donate SkullHotel [NAME]"
-    // "SH" prefix identifies this as a SkullHotel transaction
-    // [CODE] is right at the front — banks NEVER cut the beginning
-    const content = `DH ${code} donate SkullHotel ${cleanUsername}`
+    // Content format: "DH[CODE]"
+    const content = `DH${code}`
     
     setUniqueCode(code)
     setExpectedContent(content)
