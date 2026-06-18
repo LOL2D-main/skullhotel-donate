@@ -11,7 +11,7 @@ import { storeTransaction } from './_transactionStore.js';
  *   "transactionDate": "2024-07-02 11:08:33",
  *   "accountNumber": "0792362190",
  *   "code": "",
- *   "content": "SH ABCDEF donate SkullHotel NGUYEN NHAT THIEN",
+ *   "content": "DH ABCDEF donate SkullHotel NGUYEN NHAT THIEN",
  *   "transferType": "in",
  *   "transferAmount": 50000,
  *   "accumulated": 1050000,

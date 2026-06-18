@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         let name = "Một nhà tài trợ";
         const content = t.transaction_content || '';
         
-        // New format: "SH ABCDEF donate SkullHotel NGUYEN NHAT THIEN"
+        // New format: "DH ABCDEF donate SkullHotel NGUYEN NHAT THIEN"
         // Extract name after "donate skullhotel" (case-insensitive)
         const skullhotelMatch = content.match(/donate\s+skullhotel\s+(.+)/i);
         if (skullhotelMatch && skullhotelMatch[1]) {
@@ -54,12 +54,12 @@ export default async function handler(req, res) {
             if (parts[1] && parts[1].trim().length > 2) {
               name = parts[1].trim();
             } else if (parts[0] && parts[0].trim().length > 2) {
-              name = parts[0].replace(/^SH\s+[A-Z0-9]+\s*/i, '').trim();
+              name = parts[0].replace(/^DH\s+[A-Z0-9]+\s*/i, '').trim();
             }
           } else {
             // Last resort: use first 3 meaningful words
             const words = content.split(' ')
-              .filter(w => w.length > 1 && !/^(SH|APPMB|FT)\d*/i.test(w))
+              .filter(w => w.length > 1 && !/^(DH|SH|APPMB|FT)\d*/i.test(w))
               .slice(0, 3)
               .join(' ')
               .replace(/[^a-zA-Z0-9\s]/g, '');

@@ -72,7 +72,7 @@ function App() {
     // Content format: "SH [CODE] donate SkullHotel [NAME]"
     // "SH" prefix identifies this as a SkullHotel transaction
     // [CODE] is right at the front — banks NEVER cut the beginning
-    const content = `SH ${code} donate SkullHotel ${cleanUsername}`
+    const content = `DH ${code} donate SkullHotel ${cleanUsername}`
     
     setUniqueCode(code)
     setExpectedContent(content)
