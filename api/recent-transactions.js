@@ -11,8 +11,8 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const token = process.env.SEPAY_API_TOKEN;
-  if (!token) {
+  const token = process.env.SEPAY_API_TOKEN || process.env.VITE_SEPAY_API_TOKEN;
+  if (!token || token === 'your_sepay_api_token_here') {
     return res.status(500).json({ error: 'Missing API Token in Environment' });
   }
 
